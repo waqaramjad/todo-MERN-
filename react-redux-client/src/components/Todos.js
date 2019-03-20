@@ -147,12 +147,44 @@ Pagination.defaultProps = defaultProps;
 
 
 export default class Todos extends React.Component {
+
+//   constructor() {
+//     super();
+
+//     // an example array of items to be paged
+//     var exampleItems = [...Array(150).keys()].map(i => ({ id: (i+1), name: 'Item ' + (i+1) }));
+
+//     this.state = {
+//         exampleItems: exampleItems,
+//         pageOfItems: []
+//     };
+
+//     // bind function in constructor instead of render (https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
+//     this.onChangePage = this.onChangePage.bind(this);
+// }
+
+onChangePage(pageOfItems) {
+    // update state with new page of items
+    this.setState({ pageOfItems: pageOfItems });
+}
+
+
   constructor(props){
     super(props);
     this.hideEditModal = this.hideEditModal.bind(this);
     this.submitEditTodo = this.submitEditTodo.bind(this);
     this.hideDeleteModal = this.hideDeleteModal.bind(this);
     this.cofirmDeleteTodo = this.cofirmDeleteTodo.bind(this);
+    var exampleItems = [...Array(150).keys()].map(i => ({ id: (i+1), name: 'Item ' + (i+1) }));
+
+    this.state = {
+        exampleItems: exampleItems,
+        pageOfItems: []
+    };
+
+    // bind function in constructor instead of render (https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
+    this.onChangePage = this.onChangePage.bind(this);
+
   }
 
   componentWillMount(){
@@ -202,115 +234,27 @@ export default class Todos extends React.Component {
     const editTodo = todoState.todoToEdit;
     console.log(todos)
     return(
-      <div className="col-md-12">
-      <h3 className="centerAlign">Todos</h3>
-      {!todos && todoState.isFetching &&
-        <p>Loading todos....</p>
-      }
-      {todos.length <= 0 && !todoState.isFetching &&
-        <p>No Todos Available. Add A Todo to List here.</p>
-      }
-      {todos && todos.length > 0 && !todoState.isFetching &&
-      <table className="table booksTable">
-      <thead>
-       <tr><th>Todo</th><th className="textCenter">Edit</th><th className="textCenter">Delete</th><th className="textCenter">View</th></tr>
-      </thead>
-      <tbody>
-        {todos.map((todo,i) => <tr key={i}>
-        <td>{todo.todoText}</td>
-         <td className="textCenter"><Button onClick={() => this.showEditModal(todo)} bsStyle="info" bsSize="xsmall"><Glyphicon glyph="pencil" /></Button></td>
-         <td className="textCenter"><Button onClick={() => this.showDeleteModal(todo)} bsStyle="danger" bsSize="xsmall"><Glyphicon glyph="trash" /></Button></td>
-         <td className="textCenter"><Link to={`/${todo._id}`}>View Details</Link> </td>
-         </tr> )
-      }
-      </tbody>
-      </table>
-    }
 
-    {/* Modal for editing todo */}
-    <Modal
-      show={todoState.showEditModal}
-      onHide={this.hideEditModal}
-      container={this}
-      aria-labelledby="contained-modal-title"
-    >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title">Edit Your Todo</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-    <div className="col-md-12">
-    {editTodo  &&
-    <TodoEditForm todoData={editTodo} editTodo={this.submitEditTodo} />
-    }
-    {editTodo  && todoState.isFetching &&
-      <Alert bsStyle="info">
-  <strong>Updating...... </strong>
-      </Alert>
-    }
-    {editTodo  && !todoState.isFetching && todoState.error &&
-      <Alert bsStyle="danger">
-  <strong>Failed. {todoState.error} </strong>
-      </Alert>
-    }
-    {editTodo  && !todoState.isFetching && todoState.successMsg &&
-      <Alert bsStyle="success">
-  Book <strong> {editTodo.todoText} </strong>{todoState.successMsg}
-      </Alert>
-    }
-    </div>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={this.hideEditModal}>Close</Button>
-      </Modal.Footer>
-    </Modal>
-
-{/* Modal for deleting todo */}
-    <Modal
-    show={todoState.showDeleteModal}
-    onHide={this.hideDeleteModal}
-    container={this}
-    aria-labelledby="contained-modal-title"
-  >
-    <Modal.Header closeButton>
-      <Modal.Title id="contained-modal-title">Delete Your Book</Modal.Title>
-    </Modal.Header>
-    <Modal.Body>
-    {todoState.todoToDelete && !todoState.error && !todoState.isFetching &&
-      <Alert bsStyle="warning">
- Are you sure you want to delete this todo <strong>{todoState.todoToDelete.todoText} </strong> ?
-</Alert>
-    }
-    {todoState.todoToDelete && todoState.error &&
-      <Alert bsStyle="warning">
- Failed. <strong>{todoState.error} </strong>
-</Alert>
-    }
-
-    {todoState.todoToDelete && !todoState.error && todoState.isFetching &&
-      <Alert bsStyle="success">
-  <strong>Deleting.... </strong>
-</Alert>
-    }
-
-    {!todoState.todoToDelete && !todoState.error && !todoState.isFetching&&
-      <Alert bsStyle="success">
- Todo <strong>{todoState.successMsg} </strong>
-</Alert>
-    }
-    </Modal.Body>
-    <Modal.Footer>
-     {!todoState.successMsg && !todoState.isFetching &&
-       <div>
-       <Button onClick={this.cofirmDeleteTodo}>Yes</Button>
-       <Button onClick={this.hideDeleteModal}>No</Button>
-       </div>
-    }
-    {todoState.successMsg && !todoState.isFetching &&
-      <Button onClick={this.hideDeleteModal}>Close</Button>
-    }
-    </Modal.Footer>
-  </Modal>
-      </div>
+      <div>
+                <div className="container">
+                    <div className="text-center">
+                        <h1>React - Pagination Example with logic like Google</h1>
+                        {this.state.pageOfItems.map(item =>
+                            <div key={item.id}>{item.name}</div>
+                        )}
+                        <Pagination items={this.state.exampleItems} onChangePage={this.onChangePage} />
+                    </div>
+                </div>
+                <hr />
+                <div className="credits text-center">
+                    <p>
+                        <a href="http://jasonwatmore.com/post/2017/03/14/react-pagination-example-with-logic-like-google" target="_top">React - Pagination Example with Logic like Google</a>
+                    </p>
+                    <p>
+                        <a href="http://jasonwatmore.com" target="_top">JasonWatmore.com</a>
+                    </p>
+                </div>
+            </div>
     );
   }
 }
