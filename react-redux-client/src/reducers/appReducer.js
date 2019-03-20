@@ -1,4 +1,4 @@
-// ./react-redux-client/src/reducers/appReducer.js
+// ./react-client/src/reducers/appReducer.js
 const INITIAL_STATE = {
   showAddTodo: false
 }

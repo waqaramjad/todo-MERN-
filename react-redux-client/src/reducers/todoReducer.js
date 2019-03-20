@@ -1,4 +1,4 @@
-// ./react-redux-client/src/reducers/todoReducer.js
+// ./react-client/src/reducers/todoReducer.js
 const INITIAL_STATE = {
   todos:[],
   todo:null,

@@ -1,4 +1,4 @@
-// ./react-redux-client/src/actions/appActions.js
+// ./react-client/src/actions/appActions.js
 
 export const toggleAddTodo = () => {
   return {

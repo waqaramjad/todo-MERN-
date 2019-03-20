@@ -1,4 +1,4 @@
-// ./react-redux-client/src/components/App.js
+// ./react-client/src/components/App.js
 import React from 'react';
 import { Navbar,Nav,NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';

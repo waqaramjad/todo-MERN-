@@ -1,4 +1,4 @@
-// ./react-redux-client/src/components/Todos.js
+// ./react-client/src/components/Todos.js
 
 
 

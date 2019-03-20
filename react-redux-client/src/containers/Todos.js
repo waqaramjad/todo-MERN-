@@ -1,4 +1,4 @@
-// ./react-redux-client/src/containers/Todos.js
+// ./react-client/src/containers/Todos.js
 import { connect } from 'react-redux';
 import * as todoActions from '../actions/todoActions';
 import Todos from '../components/Todos';

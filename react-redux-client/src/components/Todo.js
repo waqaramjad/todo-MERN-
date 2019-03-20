@@ -1,4 +1,4 @@
-// ./react-redux-client/src/components/Todo.js
+// ./react-client/src/components/Todo.js
 import React from 'react';
 
 export default class Todo extends React.Component {

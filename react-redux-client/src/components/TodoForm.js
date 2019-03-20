@@ -1,4 +1,4 @@
-// ./react-redux-client/src/components/TodoForm.js
+// ./react-client/src/components/TodoForm.js
 import React from 'react';
 import { FormGroup,ControlLabel,FormControl,Button } from 'react-bootstrap';
 

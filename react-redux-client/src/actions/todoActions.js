@@ -1,4 +1,4 @@
-// ./react-redux-client/src/actions/todoActions.js
+// ./react-client/src/actions/todoActions.js
 
 const apiUrl = "/api/";
 

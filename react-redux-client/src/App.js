@@ -1,4 +1,4 @@
-// ./react-redux-client/src/App.js
+// ./react-client/src/App.js
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
