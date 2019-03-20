@@ -164,7 +164,8 @@ export default class Todos extends React.Component {
 // }
 
 onChangePage(pageOfItems) {
-    // update state with new page of items
+    // update state with new page of items.
+    console.log(pageOfItems)
     this.setState({ pageOfItems: pageOfItems });
 }
 
@@ -175,10 +176,21 @@ onChangePage(pageOfItems) {
     this.submitEditTodo = this.submitEditTodo.bind(this);
     this.hideDeleteModal = this.hideDeleteModal.bind(this);
     this.cofirmDeleteTodo = this.cofirmDeleteTodo.bind(this);
-    var exampleItems = [...Array(150).keys()].map(i => ({ id: (i+1), name: 'Item ' + (i+1) }));
+
+    const todoState = this.props.mappedTodoState;
+    const todos = todoState.todos;
+    console.log(todos)
+    // var exampleItems = [...Array(2).push({id:1},{id:2})];
+    // var exampleItems = [Array(2).key()].push({id:1},{id:2});
+    // var exampleItems = [...Array(2).keys()].push({id:1},{id:2})
+    var a = [1,2,3,4,5]
+    // var exampleItems = [Array(150).keys()].map(i => ({ id: (i+1), name: 'Item ' + (i+1) }));
+    // var exampleItems = a.map(i => ({ id1: (i+1), name1: 'Item ' + (i+1) }));
+
+    // console.log(exampleItems)
 
     this.state = {
-        exampleItems: exampleItems,
+        exampleItems: [],
         pageOfItems: []
     };
 
@@ -228,11 +240,83 @@ onChangePage(pageOfItems) {
     this.props.mappedDeleteTodo(this.props.mappedTodoState.todoToDelete);
   }
 
+  componentWillReceiveProps(props1){
+    console.log(props1.mappedTodoState.todos)
+    var data = props1.mappedTodoState.todos
+    console.log(data)
+    const todoState = props1.mappedTodoState.todos
+//     var a = [
+// {
+//   createdAt: "2019-03-20T03:59:51.345Z",
+// todoDesc: "qwrqw",
+// todoText: "qwreqwr",
+// __v: 0,
+// _id: "5c91bab7629cd1289491a8d2"
+// } ,
+// {
+//   createdAt: "2019-03-20T03:59:51.345Z",
+// todoDesc: "qwrqw",
+// todoText: "qwreqwr",
+// __v: 0,
+// _id: "5c91bab7629cd1289491a8d3"
+// } ,
+// {
+//   createdAt: "2019-03-20T03:59:51.345Z",
+// todoDesc: "qwrqw",
+// todoText: "qwreqwr",
+// __v: 0,
+// _id: "5c91bab7629cd1289491a8d4"
+// } ,
+// {
+//   createdAt: "2019-03-20T03:59:51.345Z",
+// todoDesc: "qwrqw",
+// todoText: "qwreqwr",
+// __v: 0,
+// _id: "5c91bab7629cd1289491a8d8"
+// } ,
+
+
+//     ]
+    // console.log(a)
+    // var myArray = []
+    var a = data
+
+    // createdAt: "2019-03-20T03:59:51.345Z"
+    // todoDesc: "qwrqw"
+    // todoText: "qwreqwr"
+    // __v: 0
+    // _id: "5c91bab7629cd1289491a8d2"
+
+    const todos = todoState.todos;
+    console.log(todos)
+    var l = 1
+    var exampleItems = undefined
+     exampleItems = a.map(i => ({ id1: (i._id) }));
+    // console.log(exampleItems)
+    
+    // var exampleItems = data.map(i => ({ id1: (i+1) }));
+    // var exampleItems = data.map(i =>{console.log(i._id)});
+
+    // if(exampleItems!=undefined){
+    // if(exampleItems.length === data.length){
+    if(data.length!=0){
+      console.log(data)
+    // if(false){
+console.log('if')
+console.log(exampleItems.length)
+      this.setState({
+        exampleItems : exampleItems
+      })
+    }
+
+  }
+
   render(){
     const todoState = this.props.mappedTodoState;
     const todos = todoState.todos;
     const editTodo = todoState.todoToEdit;
     console.log(todos)
+    console.log(this.state)
     return(
 
       <div>
@@ -240,7 +324,7 @@ onChangePage(pageOfItems) {
                     <div className="text-center">
                         <h1>React - Pagination Example with logic like Google</h1>
                         {this.state.pageOfItems.map(item =>
-                            <div key={item.id}>{item.name}</div>
+                            <div key={item.id1}>{item.name1}</div>
                         )}
                         <Pagination items={this.state.exampleItems} onChangePage={this.onChangePage} />
                     </div>
