@@ -48,11 +48,6 @@ export default class App extends React.Component {
       <Navbar.Toggle />
     </Navbar.Header>
     <Navbar.Collapse>
-      {/* <Nav>
-        <LinkContainer to={{ pathname: '/', query: {  } }}>
-           <NavItem eventKey={1}>Home</NavItem>
-        </LinkContainer>
-      </Nav> */}
       <Nav pullRight>
       <LinkContainer to={{ pathname: '/', query: {  } }} onClick={this.toggleAddTodo}>
          <NavItem eventKey={1}>Add item</NavItem>

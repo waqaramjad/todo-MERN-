@@ -6,22 +6,12 @@
   "scripts": {
     "start": "nodemon app_hooked.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bipinswarnkar1989/mern_stack_tutorial_todo_app.git"
-  },
   "keywords": [
     "express",
     "server",
     "todo",
     "app"
   ],
-  "author": "Bipin Swarnkar",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/bipinswarnkar1989/mern_stack_tutorial_todo_app/issues"
-  },
-  "homepage": "https://github.com/bipinswarnkar1989/mern_stack_tutorial_todo_app#readme",
   "dependencies": {
     "babel-preset-es2015-node6": "^0.4.0",
     "babel-register": "^6.26.0",

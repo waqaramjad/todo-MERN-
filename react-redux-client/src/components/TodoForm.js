@@ -6,7 +6,7 @@ const TodoForm = (props) => {
   return (
     <form className="form form-horizontal" id="addTodoForm" onSubmit={props.addTodo}>
     <div className="row">
-    <h3 className="centerAlign">Add Your Todo</h3>
+    <h3 className="centerAlign">Add Item</h3>
     <div className="col-md-12">
     <FormGroup>
           <ControlLabel>Todo: </ControlLabel>

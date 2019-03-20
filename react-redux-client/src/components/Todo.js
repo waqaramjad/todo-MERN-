@@ -10,10 +10,10 @@ export default class Todo extends React.Component {
     const todoState = this.props.mappedTodoState;
     return(
       <div className="todoDetail">
-       <h2>Todo Detail</h2>
+       <h2> Detail</h2>
          {!todoState.todo && todoState.isFetching &&
            <div>
-             <p>Loading todo....</p>
+             <p>Loading ....</p>
            </div>
          }
        {todoState.todo && !todoState.isFetching &&

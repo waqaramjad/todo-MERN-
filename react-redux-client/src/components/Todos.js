@@ -1,4 +1,3 @@
-// ./react-client/src/components/Todos.js
 
 
 
@@ -148,20 +147,6 @@ Pagination.defaultProps = defaultProps;
 
 export default class Todos extends React.Component {
 
-//   constructor() {
-//     super();
-
-//     // an example array of items to be paged
-//     var exampleItems = [...Array(150).keys()].map(i => ({ id: (i+1), name: 'Item ' + (i+1) }));
-
-//     this.state = {
-//         exampleItems: exampleItems,
-//         pageOfItems: []
-//     };
-
-//     // bind function in constructor instead of render (https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
-//     this.onChangePage = this.onChangePage.bind(this);
-// }
 
 onChangePage(pageOfItems) {
     // update state with new page of items.
@@ -180,14 +165,7 @@ onChangePage(pageOfItems) {
     const todoState = this.props.mappedTodoState;
     const todos = todoState.todos;
     console.log(todos)
-    // var exampleItems = [...Array(2).push({id:1},{id:2})];
-    // var exampleItems = [Array(2).key()].push({id:1},{id:2});
-    // var exampleItems = [...Array(2).keys()].push({id:1},{id:2})
     var a = [1,2,3,4,5]
-    // var exampleItems = [Array(150).keys()].map(i => ({ id: (i+1), name: 'Item ' + (i+1) }));
-    // var exampleItems = a.map(i => ({ id1: (i+1), name1: 'Item ' + (i+1) }));
-
-    // console.log(exampleItems)
 
     this.state = {
         exampleItems: [],
@@ -242,64 +220,17 @@ onChangePage(pageOfItems) {
 
   componentWillReceiveProps(props1){
     console.log(props1.mappedTodoState.todos)
-// var data = []
      var data = props1.mappedTodoState.todos
     console.log(data)
     const todoState = props1.mappedTodoState.todos
-//     var a = [
-// {
-//   createdAt: "2019-03-20T03:59:51.345Z",
-// todoDesc: "qwrqw",
-// todoText: "qwreqwr",
-// __v: 0,
-// _id: "5c91bab7629cd1289491a8d2"
-// } ,
-// {
-//   createdAt: "2019-03-20T03:59:51.345Z",
-// todoDesc: "qwrqw",
-// todoText: "qwreqwr",
-// __v: 0,
-// _id: "5c91bab7629cd1289491a8d3"
-// } ,
-// {
-//   createdAt: "2019-03-20T03:59:51.345Z",
-// todoDesc: "qwrqw",
-// todoText: "qwreqwr",
-// __v: 0,
-// _id: "5c91bab7629cd1289491a8d4"
-// } ,
-// {
-//   createdAt: "2019-03-20T03:59:51.345Z",
-// todoDesc: "qwrqw",
-// todoText: "qwreqwr",
-// __v: 0,
-// _id: "5c91bab7629cd1289491a8d8"
-// } ,
-
-
-//     ]
-    // console.log(a)
-    // var myArray = []
     var a = data
 
-    // createdAt: "2019-03-20T03:59:51.345Z"
-    // todoDesc: "qwrqw"
-    // todoText: "qwreqwr"
-    // __v: 0
-    // _id: "5c91bab7629cd1289491a8d2"
 
     const todos = todoState.todos;
     console.log(todos)
     var l = 1
     var exampleItems = undefined
      exampleItems = a.map(i => ({ _id: (i._id),todoText :(i.todoText) , todoDesc :(i.todoDesc), createdAt:(i.createdAt)}));
-    // console.log(exampleItems)
-    
-    // var exampleItems = data.map(i => ({ id1: (i+1) }));
-    // var exampleItems = data.map(i =>{console.log(i._id)});
-
-    // if(exampleItems!=undefined){
-    // if(exampleItems.length === data.length){
     if(data.length!=0){
       console.log(data)
     // if(false){
@@ -334,28 +265,16 @@ console.log(exampleItems.length)
       </thead>
       <tbody>
 
-      {/* <div > */}
-                        {/* <h1>React - Pagination Example with logic like Google</h1> */}
                         {this.state.pageOfItems.map((todo , i )=>
                            <tr key={i}>
                            <td>{todo.todoText}</td>
                            <td>{todo.todoDesc}</td>
                             <td className="textCenter"><Button onClick={() => this.showEditModal(todo)} bsStyle="info" bsSize="xsmall"><Glyphicon glyph="pencil" /></Button></td>
                             <td className="textCenter"><Button onClick={() => this.showDeleteModal(todo)} bsStyle="danger" bsSize="xsmall"><Glyphicon glyph="trash" /></Button></td>
-                            {/* <td className="textCenter"><Link to={`/${todo._id}`}>View Details</Link> </td> */}
                             </tr> 
                         )}
                         <Pagination items={this.state.exampleItems} onChangePage={this.onChangePage} />
-                    {/* </div> */}
-        {/* {todos.map((todo,i) => 
-        <tr key={i}>
-        <td>{todo.todoText}</td>
-         <td className="textCenter"><Button onClick={() => this.showEditModal(todo)} bsStyle="info" bsSize="xsmall"><Glyphicon glyph="pencil" /></Button></td>
-         <td className="textCenter"><Button onClick={() => this.showDeleteModal(todo)} bsStyle="danger" bsSize="xsmall"><Glyphicon glyph="trash" /></Button></td>
-         <td className="textCenter"><Link to={`/${todo._id}`}>View Details</Link> </td>
-         </tr> 
-         )
-      } */}
+          
       </tbody>
       </table>
     }
