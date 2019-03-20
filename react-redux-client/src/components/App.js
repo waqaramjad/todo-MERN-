@@ -43,19 +43,19 @@ export default class App extends React.Component {
       <Navbar inverse  collapseOnSelect className="customNav">
     <Navbar.Header>
       <Navbar.Brand>
-        <a href="/#">Mern Stack Todo App</a>
+        <a href="/#" style={{color:'white'}}>Inside Petroleum </a>
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>
     <Navbar.Collapse>
-      <Nav>
+      {/* <Nav>
         <LinkContainer to={{ pathname: '/', query: {  } }}>
            <NavItem eventKey={1}>Home</NavItem>
         </LinkContainer>
-      </Nav>
+      </Nav> */}
       <Nav pullRight>
       <LinkContainer to={{ pathname: '/', query: {  } }} onClick={this.toggleAddTodo}>
-         <NavItem eventKey={1}>Add Todo</NavItem>
+         <NavItem eventKey={1}>Add item</NavItem>
       </LinkContainer>
       </Nav>
     </Navbar.Collapse>

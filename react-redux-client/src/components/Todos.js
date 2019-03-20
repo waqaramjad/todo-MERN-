@@ -117,7 +117,7 @@ class Pagination extends React.Component {
       }
 
       return (
-          <ul className="pagination" style={{marginLeft:'40%'}}>
+          <ul className="pagination" style={{display: 'flex', justifyContent: 'center'}}>
               <li className={pager.currentPage === 1 ? 'disabled' : ''}>
                   <a onClick={() => this.setPage(1)}>First</a>
               </li>
@@ -320,7 +320,7 @@ console.log(exampleItems.length)
     console.log(this.state)
     return(
       <div className="col-md-12">
-      <h3 className="centerAlign">Todos</h3>
+      <h3 className="centerAlign">Data List</h3>
       {!todos && todoState.isFetching &&
         <p>Loading todos....</p>
       }
@@ -330,7 +330,7 @@ console.log(exampleItems.length)
       {todos && todos.length > 0 && !todoState.isFetching &&
       <table className="table booksTable">
       <thead>
-       <tr><th>Todo</th><th className="textCenter">Edit</th><th className="textCenter">Delete</th><th className="textCenter">View</th></tr>
+       <tr><th>Title</th><th>Discription</th><th className="textCenter">Edit</th><th className="textCenter">Delete</th></tr>
       </thead>
       <tbody>
 
@@ -339,9 +339,10 @@ console.log(exampleItems.length)
                         {this.state.pageOfItems.map((todo , i )=>
                            <tr key={i}>
                            <td>{todo.todoText}</td>
+                           <td>{todo.todoDesc}</td>
                             <td className="textCenter"><Button onClick={() => this.showEditModal(todo)} bsStyle="info" bsSize="xsmall"><Glyphicon glyph="pencil" /></Button></td>
                             <td className="textCenter"><Button onClick={() => this.showDeleteModal(todo)} bsStyle="danger" bsSize="xsmall"><Glyphicon glyph="trash" /></Button></td>
-                            <td className="textCenter"><Link to={`/${todo._id}`}>View Details</Link> </td>
+                            {/* <td className="textCenter"><Link to={`/${todo._id}`}>View Details</Link> </td> */}
                             </tr> 
                         )}
                         <Pagination items={this.state.exampleItems} onChangePage={this.onChangePage} />

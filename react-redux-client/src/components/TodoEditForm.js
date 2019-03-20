@@ -8,10 +8,10 @@ const TodoEditForm = (props) => {
     <div className="row">
     <div className="col-md-12">
     <FormGroup>
-          <ControlLabel>Todo: </ControlLabel>
+          <ControlLabel>Title: </ControlLabel>
           <input type="hidden" value={props.todoData._id} name="id"/>
             <FormControl
-              type="text" placeholder="Enter todo"
+              type="text" placeholder="Enter title"
               name="todoText" defaultValue={props.todoData.todoText}
                />
         </FormGroup>
