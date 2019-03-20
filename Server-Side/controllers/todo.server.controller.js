@@ -1,4 +1,4 @@
-// ./express-server/controllers/todo.server.controller.js
+// ./Server-Side/controllers/todo.server.controller.js
 import mongoose from 'mongoose';
 
 //import models

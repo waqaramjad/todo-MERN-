@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-/express-server/node_modules
+/Server-Side/node_modules
 
 # testing
 /coverage

@@ -1,5 +1,5 @@
 {
-  "name": "express-server",
+  "name": "Server-Side",
   "version": "1.0.0",
   "description": "express server for mern todo app",
   "main": "app.js",
